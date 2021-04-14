@@ -5,20 +5,20 @@
 
  if(!address){
    console.log('Please, provide a address')
-}else {
-     geocode(address, (error, data) => {
+}else {  
+     geocode(address, (error, {latitude, longitude, location}) => {
        if(error){
          return console.log(error)
        } 
        
-       forecast(data.latitude, data.longitude, (error, forecastData) => {
+       forecast(latitude, longitude, (error, forecastData) => {
           if(error) {
              return error
           }
-          console.log('Location', data.location)
+          console.log('Location', location)
           console.log(forecastData)
        })
     })
 
- }
+ } 
 
